@@ -21,6 +21,6 @@ setup(
     setup_requires=['pytest-runner', 'wheel'],
     url='https://github.com/lalvarezpoli/DS_HW3',
     classifiers=[
-        'Programming Language :: Python :: 3.10.7'
+        'Programming Language :: Python :: 3.7.1'
     ]
 )
