@@ -1,6 +1,13 @@
 import pandas  as pd
 import numpy as np
 
+
+#  Return list of numeric  columns in dataset
+def numeric_cols(dataset):
+    numerics = dataset.select_dtypes(include= np.number).columns.tolist()
+    return numerics
+
+# Calculate  Summary Statistics in Dataframe
 def pop_parameters(dataset):
     statistics = {}
 
