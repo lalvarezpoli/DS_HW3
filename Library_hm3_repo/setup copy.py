@@ -3,7 +3,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import bse_demo_library
+import Library_hm3_repo
 
 
 def get_requirements(requirements_path='requirements.txt'):
