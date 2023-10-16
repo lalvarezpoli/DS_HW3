@@ -1,5 +1,5 @@
 import Library_hm3_repo
-from Library_hm3_repo.lib3.compute_death_rate import pop_parameters
+from Library_hm3_repo.lib3.EDA import pop_parameters
 import pandas as pd
 import numpy as np
 import os 
