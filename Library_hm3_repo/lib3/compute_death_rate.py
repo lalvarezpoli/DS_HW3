@@ -1,7 +1,6 @@
 import pandas  as pd
 import numpy as np
 
-
 def pop_parameters(dataset):
     statistics = {}
 
