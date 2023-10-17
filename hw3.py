@@ -41,7 +41,6 @@ get_day_month_year(dates)
 #
 
 from functools import reduce
-
 from geopy.distance import geodesic as GD
 
 coordinates=[((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]    

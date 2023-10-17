@@ -5,7 +5,7 @@ import pandas as pd
 #Function that loads the data and returns a df.
 def load_sample_diabetes_data():
     path = os.getcwd()
-    df = pd.read_csv(path+'/Notebooks/sample_diabetes_mellitus_data.csv')
+    df = pd.read_csv('./sample_diabetes_mellitus_data.csv')
     return df
 
 def dropmissingvalues(df):
@@ -13,9 +13,10 @@ def dropmissingvalues(df):
     return data
 
 def fillmissingvalues_with_mean(df):
-    df["height"]= df["height"].fillna(df["height"].mean())
-    df["weight"]= df["weight"].fillna(df["weight"].mean())
+    df.loc[:, "height"] = df["height"].fillna(df["height"].mean())
+    df.loc[:, "weight"] = df["weight"].fillna(df["weight"].mean())
     return df
+
 
 def inputdummyvariables(df):
     df2 =pd.get_dummies(df, columns=["ethnicity"], prefix="ethnicity")

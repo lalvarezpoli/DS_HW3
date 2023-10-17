@@ -1,4 +1,5 @@
 from sklearn.model_selection import train_test_split
+import pandas as pd
 
 
 # Function that returns features (X) and target (Y)
@@ -38,9 +39,16 @@ def predict_probs(x_train, y_train,x_test):
 
     train_probabilities = train_model.predict_proba(x_train)[:, 1]
     test_probabilities = train_model.predict_proba(x_test)[:, 1]
+    train_probabilities =  pd.Series(train_probabilities)
+    test_probabilities =  pd.Series(test_probabilities)
 
-    return (train_probabilities, test_probabilities)
+    return train_probabilities, test_probabilities
 
+def merge_sets(x_train, x_test, train_probabilities, test_probabilities):
+    x_train['predictions'] = train_probabilities
+    x_test['predictions'] = test_probabilities
+
+    return x_train , x_test
 
 
 
