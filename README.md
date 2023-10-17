@@ -1,15 +1,16 @@
 # DS_HW3
+  ### Library Structure
 
-## Library  Name : Library_hm3_repo  
+    ## Library  Name : Library_hm3_repo 
 
-    #### Function Folder : lib3
+        #### Function Folder : lib3
 
-        - Function file 1:  EDA.py
-        - Function file 2: clean_model.py
-        - Function file 3: model_running.py
+            - Function file 1:  EDA.py
+            - Function file 2: clean_model.py
+            - Function file 3: model_running.py
 
-## Hmw3 Solution:  hw3.py  
+    ## Hmw3 Solution:  hw3.py  
 
-## Notebooks  
+    ## Notebooks  
 
-    #### Notebook_q7.ipynb
+        #### Notebook_q7.ipynb
