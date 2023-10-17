@@ -2,10 +2,11 @@
 import os
 import pandas as pd
 
-path = os.getcwd()
-path
-df = pd.read_csv(path+'/Notebooks/sample_diabetes_mellitus_data.csv')
-
+#Function that loads the data and returns a df.
+def load_sample_diabetes_data():
+    path = os.getcwd()
+    df = pd.read_csv(path+'/Notebooks/sample_diabetes_mellitus_data.csv')
+    return df
 
 def dropmissingvalues(df):
     data = df.dropna(subset=["age", "gender", "ethnicity"])
@@ -27,10 +28,3 @@ def model_cleaning(df):
     df3=inputdummyvariables(df2)
     return df3
 
-df.shape
-df.isna().sum()
-
-df3 = model_cleaning(df)
-
-df3.shape
-df3.isna().sum()

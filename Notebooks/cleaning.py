@@ -2,12 +2,10 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-
-
 #Function that loads the data and returns a df.
 def load_sample_diabetes_data():
     path = os.getcwd()
-    df = pd.read_csv(path+'/sample_diabetes_mellitus_data.csv')
+    df = pd.read_csv(path+'/Notebooks/sample_diabetes_mellitus_data.csv')
     return df
 
 #Function that divides df into training and test.

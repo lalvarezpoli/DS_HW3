@@ -8,9 +8,9 @@ def define_features(df):
     return X, Y
 
 #Input p is the proportion of test sample. The function will divide the sample into train and test.
-def train_n_test_features(p):
-    X, Y = define_features()
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=p, random_state=30)
+def train_n_test_features(df):
+    X, Y = define_features(df)
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=30)
     return X_train, X_test, Y_train, Y_test
 
 
@@ -24,8 +24,8 @@ def train_log_model(X, Y):
     return log_model
 
 #Function that calculates test scores 
-def test_log_model():
-    train_model = train_log_model(X_train, Y_train)
+def test_log_model(x,y):
+    train_model = train_log_model(x, y)
 
     train_score = train_model.score(X_train, Y_train)
     test_score = train_model.score(X_test, Y_test)
