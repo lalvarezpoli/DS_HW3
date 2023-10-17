@@ -14,5 +14,8 @@ clean_df = model_cleaning(df)
 X_train, X_test, Y_train, Y_test = train_n_test_features(clean_df)
 
 #train  model
-log_model = train_log_model(X_train,Y_train)
+scores = test_log_model(X_train, X_test, Y_train, Y_test)
+
+#Calculate Probabilities
+probabilities = predict_probs(X_train,Y_train, X_test)
 

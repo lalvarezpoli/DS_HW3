@@ -24,20 +24,20 @@ def train_log_model(X, Y):
     return log_model
 
 #Function that calculates test scores 
-def test_log_model(x,y):
-    train_model = train_log_model(x, y)
+def test_log_model(x_train,y_train,x_test,y_test):
+    train_model = train_log_model(x_train, y_train)
 
-    train_score = train_model.score(X_train, Y_train)
-    test_score = train_model.score(X_test, Y_test)
+    train_score = train_model.score(x_train, y_train)
+    test_score = train_model.score(x_test,y_test)
 
     return (train_score, test_score)
 
 #Function that calculates probabilities.
-def predict_probs():
-    train_model = train_log_model(X_train, Y_train)
+def predict_probs(x_train, y_train,x_test):
+    train_model = train_log_model(x_train, y_train)
 
-    train_probabilities = logistic_model.predict_proba(X_train)[:, 1]
-    test_probabilities = logistic_model.predict_proba(X_test)[:, 1]
+    train_probabilities = train_model.predict_proba(x_train)[:, 1]
+    test_probabilities = train_model.predict_proba(x_test)[:, 1]
 
     return (train_probabilities, test_probabilities)
 
