@@ -1,5 +1,8 @@
 import pandas  as pd
 import numpy as np
+import matplotlib.pyplot as plt
+from IPython.display import display
+
 
 
 #  Return list of numeric  columns in dataset
@@ -31,3 +34,28 @@ def pop_parameters(dataset):
                                                                         'median','per75','max','IQRs','lower_bound','upper_bound'])
     results['lower_bound'] = np.where((results['lower_bound']<0) & (results['min']>=0),0,results['lower_bound'])
     return round(results,2)
+
+
+# Plot all numeric histograms
+def plot_hist_mult(data,var1,var2,bins):
+    fig, axes = plt.subplots(var1,var2)
+
+    for i, el in enumerate(list(data.columns.values)):
+        a= data.hist(el,ax=axes.flatten()[i], bins=bins)
+
+    fig.set_size_inches(5,6)
+    plt.tight_layout()
+    plt.show()
+
+
+# Exploration function
+def explore(dataset,num_columns,plot_rows,plot_cols):
+    num = numeric_cols(dataset)
+
+    summary_stats = pop_parameters(dataset[num].iloc[:, :num_columns])
+    summary_trans = summary_stats.round(2).T
+
+    print('Summary Statistics')
+    display(summary_trans)
+    print('histograms')
+    plot_hist_mult(dataset[num].iloc[:, :num_columns],plot_rows,plot_cols,30)

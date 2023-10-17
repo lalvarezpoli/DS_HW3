@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 path="/Users/ruimaciel/Desktop/Barcelona/Computing for Data Science/hw3/sample_diabetes_mellitus_data.csv"
 
