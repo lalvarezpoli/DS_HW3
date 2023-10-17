@@ -21,11 +21,6 @@ def load_n_split_diabetes_data():
     data_train, data_test = divide_data(df)
     return data_train, data_test
 
-# # Function that remove rows that contain NaN values in the columns: age, gender, ethnicity.
-# def rm_na(df):
-#     rm_df = df.dropna(subset=["age", "gender", "ethnicity"])
-#     return df
-
 
 
 
