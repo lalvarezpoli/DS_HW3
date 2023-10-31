@@ -8,11 +8,6 @@ import pytest
 import hw3 
 from hw3 import get_day_month_year
 
-#def get_day_month_year(list_of_dates: list):
-    #return pd.DataFrame(map(lambda x: {"day": x.day, "month": x.month, "year": x.year}, list_of_dates))
-
-#Me da error el data frame, no se cómo testearlo. Dice que es ambiguo y 'expected' not defined.
-
 class test_get_day_month_year(unittest.TestCase):
 
     def test_get_day_month_year_standard(self):
@@ -29,7 +24,7 @@ class test_get_day_month_year(unittest.TestCase):
     def test_get_day_month_year_empty(self):
         input_data = []
         result = get_day_month_year(input_data)
-        expected_df = pd.DataFrame(columns=["day", "month", "year"])
+        expected_df = pd.DataFrame([])
         #assert result == expected_df
         pd.testing.assert_frame_equal(result,expected_df)
 

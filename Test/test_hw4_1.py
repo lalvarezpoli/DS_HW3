@@ -1,32 +1,7 @@
 import unittest
 import re
-
-class Patient:
-    def __init__(self, name, symptoms):
-        if not isinstance(name, str):
-            raise TypeError("Name must be a string")
-        if not all(isinstance(symptom, str) for symptom in symptoms):
-            raise TypeError("Symptoms must be a list of strings")
-        self.name = name
-        self.symptoms = symptoms
-        self.tests = {}
-
-    def add_test(self, name_of_the_test, results):
-        if not isinstance(name_of_the_test, str):
-            raise TypeError("Name must be a string")
-        if not isinstance(results, bool):
-            raise TypeError("Results must be a boolean")
-        self.tests[name_of_the_test] = results
-
-    def has_covid(self):
-        for test_name, test_result in self.tests.items():
-                if re.search(r'covid', test_name, re.IGNORECASE):
-                    if test_result == True:
-                        return 0.99
-                    else:
-                        return 0.01
-        symptom_count = sum(symptom in self.symptoms for symptom in ['fever', 'cough', 'anosmia'])
-        return 0.05 + 0.1 * symptom_count
+import hw4
+from hw4 import Patient
 
 class test_PatientMethods(unittest.TestCase):
 
@@ -45,7 +20,7 @@ class test_PatientMethods(unittest.TestCase):
         # Test case where test for COVID is available but negative
         patient = Patient("TestPatient", ["fever", "cough"])
         patient.add_test("Covid", False)
-        patient.add_test("COVID Test", 0.01)
+        self.assertEqual(patient.has_covid(), 0.01) 
 
     def test_has_covid_without_symptoms(self):
         # Test case where the patient has no symptoms

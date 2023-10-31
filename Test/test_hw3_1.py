@@ -1,16 +1,10 @@
-from functools import reduce
-
-simba=["Simba and Nala are lions.", "I laugh in the face of danger.", "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."]
-
-def count_simba(list_of_strings: list):
-    return reduce(lambda x,y: x+y, map(lambda x: x.count("Simba"), list_of_strings))
-
-
-
 import pandas as pd
 from pandas.testing import assert_series_equal
 import unittest
+from functools import reduce
 
+import hw3
+from hw3 import count_simba
 
 
 #We've got 1 error. The function is case sensitive and only considers "Simba". Makes sense.
