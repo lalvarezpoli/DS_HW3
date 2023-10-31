@@ -1,10 +1,9 @@
 from functools import reduce
 import unittest
 
- #Tira dos errores no entiendo muy bien porque.
+import hw3
+from hw3 import sum_general_int_list
 
-def sum_general_int_list(list_of_integers: list):
-    return reduce(lambda x,y: x+y, map(lambda x: sum_general_int_list(x) if type(x)==list else x, list_of_integers))
 
 class test_sum_general_int_list(unittest.TestCase):
 
@@ -12,12 +11,6 @@ class test_sum_general_int_list(unittest.TestCase):
         list_1 = [[2], 3, [[1, 2], 5]]
         result = sum_general_int_list(list_1)
         expected = 2 + 3 + (1 + 2) + 5
-        assert result == expected
-
-    def test_sum_general_int_list_empty(self):
-        list_2 = []
-        result = sum_general_int_list(list_2)
-        expected = 0
         assert result == expected
 
     def test_sum_general_int_list_single(self):

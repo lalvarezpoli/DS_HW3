@@ -1,32 +1,7 @@
 import unittest
 import random
-
-
-class Card:
-    def __init__(self, suit, value):
-        if not isinstance(suit, str):
-            raise TypeError("Suit must be a string")
-        if not isinstance(value, str):
-            raise TypeError("Vlue must be a string")
-        self.suit = suit
-        self.value = value
-
-class Deck:
-    def __init__(self):
-        self.Cards = []
-        for suit in ["Hearts", "Diamonds", "Clubs", "Spades"]:
-            for value in ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]:
-                self.Cards.append(Card(suit, value))
-
-    def shuffle(self):
-        random.shuffle(self.Cards)
-
-    def draw(self):
-        if self.Cards:
-            drawn_card = self.Cards.pop()
-            print(f"Drawn card: {drawn_card.value} of {drawn_card.suit}")
-        else:
-            print("The deck is empty.")
+import hw4
+from hw4 import Card, Deck
 
 
 class Test_Deck(unittest.TestCase):
@@ -72,8 +47,8 @@ class Test_Deck(unittest.TestCase):
         last_drawn_card = all_drawn_cards[-1]
 
         # Ensure the last drawn card is within the range of a standard deck
-        self.assertIn(last_drawn_card.suit, ["Hearts", "Diamonds", "Clubs", "Spades"])
-        self.assertIn(last_drawn_card.value, ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"])
+        self.assertIn(last_drawn_card[0], ["Hearts", "Diamonds", "Clubs", "Spades"])
+        self.assertIn(last_drawn_card[1], ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"])
 
     def test_draw_from_empty_deck(self):
         # Test drawing from an empty deck
@@ -90,3 +65,4 @@ class Test_Deck(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

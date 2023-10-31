@@ -1,19 +1,7 @@
-def check_positive_num(*args):
-    for var_value in args:
-        if not isinstance(var_value, (int, float)):
-            raise TypeError("Variable must be an int or float")
-        elif var_value <=0:
-            raise ValueError("Variable must be higher than 0")
-
-class PlaneFigure:
-    def compute_perimeter(self):
-        raise NotImplementedError("Subclass must implement abstract method")
-
-    def compute_surface(self):
-        raise NotImplementedError("Subclass must implement abstract method")
-    
 
 import unittest
+import hw4
+from hw4 import check_positive_num, PlaneFigure
 
 class Test_PlaneFigure(unittest.TestCase):
 

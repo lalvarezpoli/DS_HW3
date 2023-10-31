@@ -1,17 +1,9 @@
 import unittest
-
-class Card:
-    def __init__(self, suit, value):
-        if not isinstance(suit, str):
-            raise TypeError("Suit must be a string")
-        if not isinstance(value, str):
-            raise TypeError("Vlue must be a string")
-        self.suit = suit
-        self.value = value
+import hw4
+from hw4 import Card
 
 
 """Test for Card class"""
-import unittest
 
 class test_Card(unittest.TestCase):
 
@@ -39,12 +31,12 @@ class test_Card(unittest.TestCase):
     def test_suit_value_no_string(self):
         # Test creating a card with empty string suit and value
         with self.assertRaises(ValueError):
-            Card("", "Ace")  # Trying to create a card with an empty string as the suit
+            Card(" ", "Ace")  # Trying to create a card with an empty string as the suit
     
     def test_suit_no_value_strings(self):
         # Test creating a card with suit and empty value
         with self.assertRaises(ValueError):
-            Card("Spades", )  # Trying to create a card with an empty value a
+            Card("Spades", )  # Trying to create a card with an empty value
 
 if __name__ == '__main__':
     unittest.main()
